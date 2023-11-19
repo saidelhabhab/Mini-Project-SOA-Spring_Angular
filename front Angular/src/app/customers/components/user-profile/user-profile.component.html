@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="main-body">
+  
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a  [routerLink]="['/admin/dashboard']">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+          </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+  
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                  <div class="mt-3">
+                    <h4>{{updatedClient.firstName}} {{updatedClient.lastName}}</h4>
+                    <p class="text-secondary mb-1">{{updatedClient.email}}</p>
+                    <p class="text-muted font-size-sm">{{updatedClient.address}} {{updatedClient.city}}</p>
+                    <button class="btn btn-primary m-1">Follow</button>
+                    <button class="btn btn-outline-primary m-1">Message</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        
+          <div class="col-md-8">
+              <form [formGroup]="clientForm" (ngSubmit)="updateClient()">
+              
+              <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+
+                  <mat-form-field appearance="outline" class="mat-form-field">
+                      <mat-label>First Name</mat-label>
+                      <input type="text" matInput [(ngModel)]="updatedClient.firstName" placeholder="firstName" formControlName="firstName" >
+                      <mat-error *ngIf="clientForm.get('name')?.hasError('required')">This input is required!</mat-error>
+                  </mat-form-field>
+
+              </div>
+                <hr>
+                <div class="row">
+                 
+                  <mat-form-field appearance="outline" class="mat-form-field">
+                      <mat-label>Last Name</mat-label>
+                      <input type="text" matInput [(ngModel)]="updatedClient.lastName" placeholder="firstName" formControlName="lastName" >
+                      <mat-error *ngIf="clientForm.get('lastName')?.hasError('required')">This input is required!</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <hr>
+                <div class="row">
+                  
+                  <mat-form-field appearance="outline" class="mat-form-field">
+                      <mat-label>Phone</mat-label>
+                      <input type="text" matInput [(ngModel)]="updatedClient.phone" placeholder="Phone" formControlName="phone" >
+                      <mat-error *ngIf="clientForm.get('phone')?.hasError('required')">This input is required!</mat-error>
+                  </mat-form-field>
+
+                </div>
+                <hr>
+                <div class="row">
+                  
+                  <mat-form-field appearance="outline" class="mat-form-field">
+                      <mat-label>City</mat-label>
+                      <input type="text" matInput [(ngModel)]="updatedClient.city" placeholder="City" formControlName="city" >
+                      <mat-error *ngIf="clientForm.get('city')?.hasError('required')">This input is required!</mat-error>
+                  </mat-form-field>
+
+                </div>
+                <hr>
+                <div class="row">
+                  
+                  <mat-form-field appearance="outline" class="mat-form-field">
+                      <mat-label>Address</mat-label>
+                      <input type="text" matInput [(ngModel)]="updatedClient.address" placeholder="Address" formControlName="address" >
+                      <mat-error *ngIf="clientForm.get('address')?.hasError('required')">This input is required!</mat-error>
+                  </mat-form-field>
+
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <button class="btn btn-info "  type="submit"  >Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+         
+
+          </div>
+         
+        </div>
+
+      </div>
+  </div>
+
+
+

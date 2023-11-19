@@ -1,0 +1,122 @@
+.search-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    .search-input{
+        width: 300px;
+        margin-right: 15px;
+   
+        input{
+            padding-right: 40px;
+        }
+
+        button{
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+        } 
+    }
+}
+
+.product-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    min-height: 70vh;
+    padding: 20px;
+
+    .product-card{
+        box-shadow: 0 2 6px rgba(0,0,0,.2);
+        border-radius: 6px;
+        width: calc(33.33% - 20px);
+        margin-bottom: 20px;
+        
+        .product-image{
+            border-radius: 10px 10px 0 0;
+            overflow: hidden;
+            margin-left: 120px;
+
+            img{
+                width: 100%;
+                object-fit: cover;
+                height: 100%;
+                }
+        }
+
+        .product-details{
+            padding: 20px;
+
+            .product-name{
+                font-size: 20px;
+                color: #50cdf3;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .product-description{
+                margin-bottom: 10px;
+            }
+
+            .product-info{
+                display: flex;    
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+
+                .info-row{
+                    flex-wrap: 0 0 50%;
+                    align-items: center;
+                   display: flex;
+                   margin-bottom: 8px;
+
+                   .info-label{
+                    font-weight: 10px;
+                    margin-right: 5px;
+                   }
+
+                   .info-value{
+                    font-weight: bold;
+                    margin: 25px;
+                   }
+                }
+            }
+
+            .actions{
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 10px;
+
+                .update-button{
+                    margin-right: 10px;
+                }
+            }
+
+        }
+
+        
+    }
+
+
+
+
+}
+
+
+
+.empty-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+
+
+    span{
+        font-size: 18px;
+        color: #616161;
+        margin-top: 10px;
+    }
+}

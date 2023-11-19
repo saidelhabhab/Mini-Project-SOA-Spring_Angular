@@ -1,0 +1,86 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>Sign Up</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="signUpForm" >
+                <mat-form-field appearance="outline">
+                    <mat-label>FirstName</mat-label>
+                    <input matInput placeholder="FirstName" formControlName="firstName" required>
+                    <mat-error *ngIf="signUpForm.get('firstName').invalid && signUpForm.get('firstName').touched"> 
+                        please enter the Name
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>LastName</mat-label>
+                    <input matInput placeholder="LastName" formControlName="lastName" required>
+                    <mat-error *ngIf="signUpForm.get('lastName').invalid && signUpForm.get('lastName').touched"> 
+                        please enter the Name
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput placeholder="Phone" formControlName="phone" required>
+                    <mat-error *ngIf="signUpForm.get('phone').invalid && signUpForm.get('phone').touched"> 
+                        please enter the Name
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Address" formControlName="address" required>
+                    <mat-error *ngIf="signUpForm.get('address').invalid && signUpForm.get('address').touched"> 
+                        please enter the Name
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input matInput placeholder="City" formControlName="city" required>
+                    <mat-error *ngIf="signUpForm.get('city').invalid && signUpForm.get('city').touched"> 
+                        please enter the Name
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" placeholder="Email" formControlName="email" required>
+                    <mat-error *ngIf="signUpForm.get('email').invalid && signUpForm.get('email').touched">
+                        Please Enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="{{ hidePassword ? 'password' : 'text'}}" placeholder="Password" formControlName="password" required>
+                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                        <mat-icon>
+                            {{ hidePassword ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                    </button>
+                    <mat-error *ngIf="signUpForm.get('password').invalid && signUpForm.get('password').touched">
+                        Please Enter a valid password
+                    </mat-error>
+                </mat-form-field> 
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm-Password</mat-label>
+                    <input matInput type="{{ hidePassword ? 'password' : 'text'}}" placeholder="Confirm-Password" formControlName="confirmPassword" required>
+                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                        <mat-icon>
+                            {{ hidePassword ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                    </button>
+                    <mat-error *ngIf="signUpForm.get('confirmPassword').invalid && signUpForm.get('confirmPassword').touched">
+                        Please Enter a valid password
+                    </mat-error>
+                </mat-form-field> 
+
+                <button mat-raised-button  (click)="onSubmit()" color="primary" type="submit" [disabled]="signUpForm.invalid">Register</button>
+
+
+                
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

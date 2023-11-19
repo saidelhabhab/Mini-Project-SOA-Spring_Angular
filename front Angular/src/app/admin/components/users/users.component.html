@@ -1,0 +1,64 @@
+<div class="container" style="padding: 30px;">
+    <mat-card>
+        <mat-card-content>
+            <table mat-table [dataSource]="users" class="mat-elevation-z8">
+                <<ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef>FirstName</th>
+                    <td mat-cell *matCellDef="let users" class="bold-cell">{{users.firstName}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef>LastName</th>
+                    <td mat-cell *matCellDef="let users" class="bold-cell">{{users.lastName}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef>Email</th>
+                    <td mat-cell *matCellDef="let users" >{{users.email}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="phone">
+                    <th mat-header-cell *matHeaderCellDef>Phone</th>
+                    <td mat-cell *matCellDef="let users" >{{users.phone}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="city">
+                    <th mat-header-cell *matHeaderCellDef>City</th>
+                    <td mat-cell *matCellDef="let users" >{{users.city }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="address">
+                    <th mat-header-cell *matHeaderCellDef>Address</th>
+                    <td mat-cell *matCellDef="let users" >{{users.address }}</td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let users" >
+                        <button mat-icon-button color="primary" class="btn btn-primary" [matMenuTriggerFor]="menu" >
+                            <mat-icon>more_vert</mat-icon>
+                            <mat-menu #menu="matMenu">
+                                <span>
+                                    <span>
+                                        <button mat-menu-item routerLink="/admin/update-user/{{users.id}}"> <mat-icon>edit</mat-icon> </button>
+                                    </span>
+                                    <span>
+                                        <button mat-menu-item (click)="deleteClient(users.id)"> <mat-icon>delete</mat-icon>  </button>
+                                    </span>
+                                </span>
+                            </mat-menu>
+                           
+                            
+                        </button> 
+                    
+
+                    </td>               
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="['firstName','lastName','email','phone','city','address','actions']"></tr>
+                <tr mat-row *matRowDef="let row; columns: ['firstName','lastName','email','phone','city','address','actions']"></tr>
+                
+                
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>

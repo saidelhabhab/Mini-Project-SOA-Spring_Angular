@@ -1,0 +1,83 @@
+
+     <div *ngIf="facture.id > 0; else emptyCart">
+        <div class="cart-container"  >
+            <div class="cart-item" >
+                <div class="product-info">
+                    <div class="product-image">
+                        <img [src]="'data:image/jpeg;base64,' + facture.returnedImg" />
+                    </div>
+                    <div class="product-details">
+                        <div class="item-row">
+                            <div class="item-name" [ngClass]="{'highlight' : facture.highlighted }">
+                                {{facture.productName}}
+                            </div>
+                            <div class="item-price">
+                                {{facture.price | currency}}
+                            </div>
+
+                            <div class="quantity-controls">
+                                <button mat-icon-button [disabled]="facture.quantity == 1" 
+                                (click)="decreaseProductQuantity(facture.productId)" 
+                                class="btn btn-default">
+                                    <mat-icon>remove_circle_outline</mat-icon>
+                                </button>
+                                <span>{{facture.quantity}}</span>
+
+                                <button mat-icon-button (click)="increaseProductQuantity(facture.productId)">
+                                    <mat-icon>add_circle_outline</mat-icon>
+                                </button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="total-price">
+                Total Amount: {{facture.totalAmount | currency}}
+            </div>
+            <div class="total-price">
+                Amount: {{facture.amount | currency}}
+            </div>
+
+            <div class="total-price" *ngIf="facture.couponName != null">
+                Coupon Applied: {{facture.couponName }}
+            </div>
+            
+            <div style="padding:20px">
+                <button style="margin:10px" mat-raised-button color="primary" (click)="placeOrder()" >Place Order</button>
+                <button style="margin:10px" mat-raised-button color="warn" (click)="deleteFacture(facture.productId)"  >Delete</button>
+
+            </div>
+
+        </div>
+
+        <div class="container" *ngIf="facture.couponName == null">
+            <form [formGroup]="couponForm" (ngSubmit)="applyCoupon()">
+                <mat-form-field appearance="outline" class="form-field" >
+                    <mat-label>Code</mat-label>
+                    <input type="text" formControlName="code" matInput placeholder="Enter your code here..." >
+                    <mat-error  *ngIf="couponForm.get('code')?.hasError('required')">
+                        Code is required!
+                    </mat-error>
+                </mat-form-field> 
+                <br/>
+                <button type="submit" mat-raised-button color="primary" >Apply Coupon</button>
+            
+            </form>
+
+        </div>
+
+    
+
+    </div>
+
+<ng-template #emptyCart>
+
+    <div class="empty-cart">
+
+        <mat-icon class="icon"> remove_shopping_cart</mat-icon>
+        <span>Nothing to see here.</span>
+
+    </div>
+</ng-template>
