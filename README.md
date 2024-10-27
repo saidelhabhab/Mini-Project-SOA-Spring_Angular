@@ -42,8 +42,4 @@ To run this project locally, follow these steps:
 - MySQL (or another database)
 - Angular CLI
 
-### Backend Setup
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/e-commerce-app.git
